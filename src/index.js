@@ -6,18 +6,17 @@ const path = require("path");
   const mobileDevices = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/mobile_devices.json"), "utf-8"));
   const iotDevices = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/iot_devices.json"), "utf-8"));
 
-
   console.log(new Date().toISOString());
-  console.log(countWithBinarySearch(users, mobileDevices, iotDevices));
+  console.log(count(users, mobileDevices, iotDevices));
   console.log(new Date().toISOString());
 })();
 
 // Solution with Hash Maps
 
-// the average time complexity for lookups in a hash map is O(1) and the worst case complexity is O(n),
-// but this will happen very rarely. So, the average complexity of this solution is O(n)
-// and the worst is O(n^2). But this solution uses additional memory. So, if we have no memory limits,
-// we should use this solution. But if we have, we should use solution with binary search
+// The average time complexity for lookups in a hash map is O(1) and the worst case complexity is O(n),
+// but this will happen very rarely. So, the average time complexity of this solution is O(n).
+// But this solution uses additional memory. So, if we have no memory limits,
+// we should use this solution. But if we have, we should use solution with binary search.
 function count(users, mobileDevices, iotDevices) {
   const usersMap = new Map();
   const mobilesMap = new Map();
@@ -30,7 +29,7 @@ function count(users, mobileDevices, iotDevices) {
     mobilesMap.set(mobile.id, mobile.user); // creating HashMap with mobile's id as a key and user's id as a value
   }
 
-  const iotsPerUser = {}; // number of IoT devices for every name
+  const iotsPerUser = {}; // amount of IoT devices for every name
   users.forEach(user => iotsPerUser[user.name.split(' ')[0]] = 0); // by default every name has 0 IoT devices
 
   for (const iotDevice of iotDevices) {
@@ -44,10 +43,10 @@ function count(users, mobileDevices, iotDevices) {
 }
 
 
-// solution with binary search
+// Solution with Binary Search
 
-// the worst time complexity of sort is O(nlogn), the worst time complexity of Binary Search is O(logn),
-// so the complexity of this solution is O(nlogn). This solution in average has worse time complexity,
+// The worst time complexity of sort is O(nlogn), the worst time complexity of Binary Search is O(logn).
+// The complexity of this solution is O(nlogn). This solution in average has worse time complexity,
 // but uses less memory.
 function countWithBinarySearch(users, mobileDevices, iotDevices) {
 
