@@ -11,9 +11,9 @@ const path = require("path");
   console.log(new Date().toISOString());
 })();
 
-// Solution with Hash Maps
+// Solution with Hash Table
 
-// The average time complexity for lookups in a hash map is O(1) and the worst case complexity is O(n),
+// The average time complexity for lookups in a hash table is O(1) and the worst case complexity is O(n),
 // but this will happen very rarely. So, the average time complexity of this solution is O(n).
 // But this solution uses additional memory. So, if we have no memory limits,
 // we should use this solution. But if we have, we should use solution with binary search.
@@ -22,11 +22,11 @@ function count(users, mobileDevices, iotDevices) {
   const mobilesMap = new Map();
 
   for (const user of users) {
-    usersMap.set(user.id, user.name.split(' ')[0]); // creacting HashMap with user's id as a key and user's name as a value
+    usersMap.set(user.id, user.name.split(' ')[0]); // creacting Hash Table with user's id as a key and user's name as a value
   }
 
   for (const mobile of mobileDevices) {
-    mobilesMap.set(mobile.id, mobile.user); // creating HashMap with mobile's id as a key and user's id as a value
+    mobilesMap.set(mobile.id, mobile.user); // creating Hash Table with mobile's id as a key and user's id as a value
   }
 
   const iotsPerUser = {}; // amount of IoT devices for every name
