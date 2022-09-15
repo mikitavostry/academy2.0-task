@@ -46,7 +46,7 @@ function count(users, mobileDevices, iotDevices) {
 // solution with binary search
 
 // the worst time complexity of sort is O(nlogn), the worst time complexity of Binary Search is O(logn),
-// so the complexity of this solution is O(nlogn). This solution in average has greater time complexity,
+// so the complexity of this solution is O(nlogn). This solution in average has worse time complexity,
 // but uses less memory.
 function countWithBinarySearch(users, mobileDevices, iotDevices) {
 
