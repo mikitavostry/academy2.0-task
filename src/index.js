@@ -7,7 +7,7 @@ const path = require("path");
   const iotDevices = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/iot_devices.json"), "utf-8"));
 
   console.log(new Date().toISOString());
-  console.log(countWithBinarySearch(users, mobileDevices, iotDevices));
+  console.log(count(users, mobileDevices, iotDevices));
   console.log(new Date().toISOString());
 })();
 
